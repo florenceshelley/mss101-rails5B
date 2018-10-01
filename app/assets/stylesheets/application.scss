@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  font-family: arial, sans-serif;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  background: rgb(240,240,240);
+}
+
+main {
+  width: 960px;
+  margin: 0px auto;
+  padding-top: 32px;
+}
+
+form,
+.tasks {
+  background: rgb(255,255,255);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 16px;
+  border: solid 1px rgb(230,230,230);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr {
+
+  td {
+    color: rgb(80,80,80);
+    padding: 16px;
+    border-bottom: solid 1px rgb(240,240,240);
+  }
+
+  td.done {
+    width: 1%;
+    white-space: nowrap;
+    input[type='checkbox'] {
+      font-size: 16px;
+      margin: 0px;
+      padding: 0px;
+      outline: none;
+    }
+  }
+
+  &.done {
+    td.name {
+      text-decoration: line-through;
+      color: rgb(200,200,200)
+    }
+  }
+
+  td.name {
+    outline: none;
+    padding-left: 0;
+  }
+
+  td.trash {
+    width: 1%;
+    white-space: nowrap;
+    cursor: pointer;
+    span {
+      color: rgb(255,255,255);
+      background: rgb(255,255,255);
+      font-size: 14px;
+      width: 24px;
+      height: 24px;
+      padding-top: 3px;
+      display: inline-block;
+      font-weight: 600;
+      text-align: center;
+      border-radius: 999px;
+    }
+  }
+
+  &:hover {
+    td.trash {
+      span {
+        background: rgb(200,200,200);
+        color: rgb(255,255,255);
+      }
+      &:hover {
+        span {
+          background: rgb(170,0,0)
+        }
+      }
+    }
+  }
+}
+
+form {
+  padding-left: 46px;
+  input[type='text'] {
+    width: 100%;
+    padding: 16px;
+    padding-left: 0px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+  }
+}

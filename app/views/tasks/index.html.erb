@@ -1,0 +1,17 @@
+<form onsubmit='tasks.create(this,event)'>
+  <input type='text' id='name' placeholder='Write a new task...' />
+</form>
+<div class='tasks'>
+  <table>
+    <tbody id='list'>
+      <%- @collection.each do |t| %>
+        <tr class='<%= t.done ? 'task done' : 'task' %>'>
+          <td class='done'><input type='checkbox' <%= t.done ? 'checked' : '' %> onchange='tasks.done(this,event,<%= t.id %>)'/></td>
+          <td class='name' contenteditable='true' onkeypress='tasks.update(this,event,<%= t.id %>)'><%= t.name %></td>
+          <td class='trash' onclick='tasks.destroy(this,event,<%= t.id %>)'><span>&mdash;</span>
+          </div>
+        </tr>
+      <%- end %>
+    </tbody>
+  </table>
+</div>
