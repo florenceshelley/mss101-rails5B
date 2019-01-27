@@ -1,0 +1,5 @@
+production:
+  DATABASE_URL:
+  SECRET_KEY_BASE:
+  RAILS_ENV: production
+  PORT: 80
