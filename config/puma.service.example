@@ -1,0 +1,18 @@
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+
+[Service]
+SyslogIdentifier=puma
+
+# Foreground process (do not use --daemon in ExecStart or config.rb)
+Type=simple
+WorkingDirectory=/home/ec2-user/app
+
+# rvmsudo bundle exec rails s -b 0.0.0.0 -p 80 -d -e production
+ExecStart=/home/ec2-user/.rvm/bin/rvmsudo /home/ec2-user/.rvm/gems/ruby-2.4.4/wrappers/bundle exec /home/ec2-user/.rvm/gems/ruby-2.4.4/wrappers/rails s -b 0.0.0.0 -p 80 -e production
+ExecStop=sudo pkill -f puma
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
